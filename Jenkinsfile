@@ -24,40 +24,32 @@ pipeline {
 
         }
 
-        stage('Install Browsers') {
 
-            steps {
 
-                bat 'npx playwright install'
+       stage('Run Mobile Tests') {
 
-            }
+           steps {
 
-        }
+               script {
 
-       stage('Run Tests') {
+                   try {
 
-    steps {
+                       bat 'npm run mobile-smoke'
 
-        script {
+                   }
+                   catch(Exception ex) {
 
-            try {
+                       currentBuild.result = 'FAILURE'
 
-                bat 'npx playwright test --project=chromium'
+                       echo 'Mobile test failed.'
 
-            }
-            catch(Exception ex) {
+                   }
 
-                currentBuild.result = 'FAILURE'
+               }
 
-                echo 'Tests failed. Continuing pipeline execution.'
+           }
 
-            }
-
-        }
-
-    }
-
-}
+       }
 
         stage('Generate Statistics') {
 
@@ -76,6 +68,16 @@ pipeline {
     }
 
 }
+stage('Publish Results') {
+
+    steps {
+
+        junit 'reports/results.xml'
+
+    }
+
+}
+
 
 
     }
@@ -125,7 +127,7 @@ pipeline {
                 <body style="font-family:Calibri,Arial,sans-serif;">
 
                 <h2 style="color:#0078D4;">
-                Playwright Automation Execution Report
+                Mobile Automation Execution Report
                 </h2>
 
                 <table border="1"
