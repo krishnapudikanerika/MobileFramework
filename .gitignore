@@ -1,0 +1,16 @@
+node_modules/
+
+reports/
+
+allure-results/
+allure-report/
+
+dist/
+
+logs/
+
+*.log
+
+*.tmp
+
+.DS_Store

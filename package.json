@@ -1,0 +1,35 @@
+{
+  "name": "mobileframework",
+  "version": "1.0.0",
+  "description": "Mobile Automation Framework using Appium, WebdriverIO and TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/*.ts",
+    "mobile-smoke": "mocha -r ts-node/register tests/smoke.spec.ts",
+    "mobile-all": "mocha -r ts-node/register tests/*.ts",
+    "clean": "rimraf reports"
+  },
+  "keywords": [
+    "appium",
+    "webdriverio",
+    "mobile",
+    "android",
+    "typescript",
+    "automation"
+  ],
+  "author": "Krishna Pudi",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^26.6.5",
+    "@wdio/cli": "^10.0.2",
+    "allure-commandline": "^2.46.1",
+    "appium": "^3.8.0",
+    "appium-uiautomator2-driver": "^8.7.0",
+    "mocha": "^12.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "webdriverio": "^10.0.2"
+  }
+}
