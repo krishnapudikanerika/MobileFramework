@@ -16,9 +16,9 @@ $total = [int]$json.stats.tests
 $passed = [int]$json.stats.passes
 $failed = [int]$json.stats.failures
 
-Write-Host "Tests    : $total"
-Write-Host "Passed   : $passed"
-Write-Host "Failed   : $failed"
+Write-Host "Total Tests: $total"
+Write-Host "Passed Tests: $passed"
+Write-Host "Failed Tests: $failed"
 
 if ($total -gt 0)
 {
