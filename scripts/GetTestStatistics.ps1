@@ -22,7 +22,9 @@ Write-Host "Failed Tests: $failed"
 
 if ($total -gt 0)
 {
-    $percentage = [Math]::Round((($passed * 100.0) / $total), 2)
+    $percentage = [Math]::Round((($passed * 100.0)al), 2)
+}
+else
 {
     $percentage = 0
 }
