@@ -20,7 +20,7 @@ $failed = [int]$json.stats.failures
 
 if($total -gt 0)
 {
-    $percentage = [Round((($passed * 100.0) / $total),2)
+    $percentage = [Math]::Round((($passed * 100total), 2)
 }
 else
 {
