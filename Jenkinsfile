@@ -4,6 +4,16 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+
+            steps {
+
+                checkout scm
+
+            }
+
+        }
+
         stage('Install Dependencies') {
 
             steps {
@@ -14,7 +24,7 @@ pipeline {
 
         }
 
-        stage('Verify Device') {
+        stage('Verify Android Device') {
 
             steps {
 
@@ -24,13 +34,35 @@ pipeline {
 
         }
 
-        stage('Execute Mobile Tests') {
+        stage('Execute Mobile Smoke Test') {
 
             steps {
 
                 bat 'npm run mobile-smoke'
 
             }
+
+        }
+
+    }
+
+    post {
+
+        always {
+
+            echo 'Mobile Automation Execution Completed'
+
+        }
+
+        success {
+
+            echo 'Mobile Smoke Test Passed'
+
+        }
+
+        failure {
+
+            echo 'Mobile Smoke Test Failed'
 
         }
 
