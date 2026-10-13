@@ -4,10 +4,7 @@
   "description": "Mobile Automation Framework using Appium, WebdriverIO and TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/*.ts",
-    "mobile-smoke": "mocha -r ts-node/register tests/smoke.spec.ts",
-    "mobile-all": "mocha -r ts-node/register tests/*.ts",
-    "clean": "rimraf reports"
+    "mobile-smoke": "mocha -r ts-node/register tests/smoke.spec.ts --reporter mocha-junit-reporter --reporter-options mochaFile=reports/results.xml"
   },
   "keywords": [
     "appium",
