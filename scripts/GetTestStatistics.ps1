@@ -1,5 +1,4 @@
-$reportFile =
-".\reports\mobile-report.json"
+$reportFile = ".\reports\mobile-report.json"
 
 if (!(Test-Path $reportFile))
 {
@@ -15,22 +14,13 @@ $json =
 Get-Content $reportFile -Raw |
 ConvertFrom-Json
 
-$total =
-$json.stats.tests
-
-$passed =
-$json.stats.passes
-
-$failed =
-$json.stats.failures
+$total  = [int]$json.stats.tests
+$passed = [int]$json.stats.passes
+$failed = [int]$json.stats.failures
 
 if($total -gt 0)
 {
-    $percentage =
-        :Round(
-            ($passed * 100.0) / $total,
-            2
-        )
+    $percentage = [Round((($passed * 100.0) / $total),2)
 }
 else
 {
@@ -41,3 +31,11 @@ Set-Content total.txt $total
 Set-Content passed.txt $passed
 Set-Content failed.txt $failed
 Set-Content percentage.txt $percentage
+
+Write-Host "===================="
+Write-Host "Total      : $total"
+Write-Host "Passed     : $passed"
+Write-Host "Failed     : $failed"
+Write-Host "Percentage : $percentage"
+Write-Host "===================="
+``

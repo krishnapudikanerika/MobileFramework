@@ -68,15 +68,7 @@ pipeline {
     }
 
 }
-stage('Publish Results') {
 
-    steps {
-
-        junit 'reports/results.xml'
-
-    }
-
-}
 
 
 
