@@ -115,7 +115,7 @@ stage('Publish Results') {
                 mimeType: 'text/html',
 
                 subject:
-                "[Playwright Framework] Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                "[Mobile Framework] Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
 
                 to:
                 "krishna.pudi@kanerika.com",

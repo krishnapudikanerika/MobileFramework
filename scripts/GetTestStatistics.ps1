@@ -1,9 +1,8 @@
-$reportPath = ".\reports\results.xml"
+$reportFile =
+".\reports\mobile-report.json"
 
-if (!(Test-Path $reportPath))
+if (!(Test-Path $reportFile))
 {
-    Write-Host "Report file not found."
-
     Set-Content total.txt "0"
     Set-Content passed.txt "0"
     Set-Content failed.txt "0"
@@ -12,18 +11,18 @@ if (!(Test-Path $reportPath))
     exit 0
 }
 
-[xml]$xml = Get-Content $reportPath
+$json =
+Get-Content $reportFile -Raw |
+ConvertFrom-Json
 
-$total = 0
-$failed = 0
+$total =
+$json.stats.tests
 
-foreach($suite in $xml.testsuites.testsuite)
-{
-    $total += [int]$suite.tests
-    $failed += [int]$suite.failures
-}
+$passed =
+$json.stats.passes
 
-$passed = $total - $failed
+$failed =
+$json.stats.failures
 
 if($total -gt 0)
 {
@@ -42,10 +41,3 @@ Set-Content total.txt $total
 Set-Content passed.txt $passed
 Set-Content failed.txt $failed
 Set-Content percentage.txt $percentage
-
-Write-Host "================"
-Write-Host "Total    : $total"
-Write-Host "Passed   : $passed"
-Write-Host "Failed   : $failed"
-Write-Host "Percent  : $percentage"
-Write-Host "================"
