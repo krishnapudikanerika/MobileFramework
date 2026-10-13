@@ -6,7 +6,6 @@ if (!(Test-Path $reportFile))
     Set-Content passed.txt "0"
     Set-Content failed.txt "0"
     Set-Content percentage.txt "0"
-
     exit 0
 }
 
@@ -22,7 +21,7 @@ Write-Host "Failed Tests: $failed"
 
 if ($total -gt 0)
 {
-    $percentage = [Math]::Round((($passed * 100.0)al), 2)
+    $percentage = [Math]::Round((($passed * 100.0) / $ 2)
 }
 else
 {
