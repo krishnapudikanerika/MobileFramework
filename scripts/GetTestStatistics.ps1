@@ -10,19 +10,19 @@ if (!(Test-Path $reportFile))
     exit 0
 }
 
-$json =
-Get-Content $reportFile -Raw |
-ConvertFrom-Json
+$json = Get-Content $reportFile -Raw | ConvertFrom-Json
 
-$total  = [int]$json.stats.tests
+$total = [int]$json.stats.tests
 $passed = [int]$json.stats.passes
 $failed = [int]$json.stats.failures
 
-if($total -gt 0)
+Write-Host "Tests    : $total"
+Write-Host "Passed   : $passed"
+Write-Host "Failed   : $failed"
+
+if ($total -gt 0)
 {
-    $percentage = [Math]::Round((($passed * 100total), 2)
-}
-else
+    $percentage = [Math]::Round((($passed * 100.0) / $total), 2)
 {
     $percentage = 0
 }
@@ -32,10 +32,9 @@ Set-Content passed.txt $passed
 Set-Content failed.txt $failed
 Set-Content percentage.txt $percentage
 
-Write-Host "===================="
+Write-Host "======================"
 Write-Host "Total      : $total"
 Write-Host "Passed     : $passed"
 Write-Host "Failed     : $failed"
 Write-Host "Percentage : $percentage"
-Write-Host "===================="
-``
+Write-Host "======================"
