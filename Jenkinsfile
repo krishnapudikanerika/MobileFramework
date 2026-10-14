@@ -34,7 +34,7 @@ pipeline {
 
                    try {
 
-                       bat 'npm run mobile-smoke'
+                       bat 'npm run mobile-all'
 
                    }
                    catch(Exception ex) {
