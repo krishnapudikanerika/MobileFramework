@@ -22,8 +22,14 @@ Write-Host "Total Tests: $total"
 Write-Host "Passed Tests: $passed"
 Write-Host "Failed Tests: $failed"
 
-# Temporary hard-coded value until statistics are finalized
-$percentage = 100
+if ($total -gt 0)
+{
+    $percentage = [Math]::Round(($passed * 100.0) l, 2)
+}
+else
+{
+    $percentage = 0
+}
 
 Set-Content total.txt $total
 Set-Content passed.txt $passed
