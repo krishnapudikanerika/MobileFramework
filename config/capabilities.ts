@@ -6,7 +6,7 @@ export const androidCapabilities = {
 
     'appium:deviceName': 'Android Emulator',
 
-    'appium:noReset': false,
+    'appium:noReset': true,
 
     'appium:autoGrantPermissions': true,
 
