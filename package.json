@@ -8,13 +8,20 @@
     "mobile-product": "mocha -r ts-node/register tests/mobile/productValidation.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
     "mobile-cart": "mocha -r ts-node/register tests/mobile/addToCart.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
     "mobile-login": "mocha -r ts-node/register tests/mobile/login.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
-    "mobile-all":
-    "mocha -r ts-node/register \"tests/mobile/**/*.spec.ts\"",
-    "tv-smoke":
-    "mocha -r ts-node/register tests/tv/tvSmoke.spec.ts",
-
-    "tv-navigation":
-    "mocha -r ts-node/register tests/tv/tvNavigation.spec.ts"
+    "mobile-all": "mocha -r ts-node/register \"tests/mobile/**/*.spec.ts\"",
+    "tv-smoke": "mocha -r ts-node/register tests/tv/tvSmoke.spec.ts",
+    "tv-navigation": "mocha -r ts-node/register tests/tv/tvNavigation.spec.ts",
+    "tv-launcher": "mocha -r ts-node/register tests/tv/tvLauncherValidation.spec.ts",
+    "tv-all": "mocha -r ts-node/register tests/tv/**/*.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=tv-report,json=true,html=false",
+    "tv-apps":
+    "mocha -r ts-node/register tests/tv/tvAppsLaunch.spec.ts",
+    "tv-settings":
+    "mocha -r ts-node/register tests/tv/tvSettings.spec.ts",
+    "tv-open-settings":
+    "mocha -r ts-node/register tests/tv/tvOpenSettings.spec.ts",
+    "tv-all":
+    "mocha -r ts-node/register tests/tv/**/*.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=tv-report,json=true,html=false",
+    "tv-demo": "mocha -r ts-node/register tests/tv/tvPlayStoreLaunch.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=tv-demo-report,json=true,html=false"
   },
   "keywords": [
     "appium",
@@ -28,12 +35,14 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.6.5",
     "@wdio/cli": "^10.0.2",
     "allure-commandline": "^2.46.1",
     "appium": "^3.8.0",
     "appium-uiautomator2-driver": "^8.7.0",
+    "chai": "^6.3.0",
     "mocha": "^10.8.2",
     "mochawesome": "^7.1.3",
     "ts-node": "^10.9.2",

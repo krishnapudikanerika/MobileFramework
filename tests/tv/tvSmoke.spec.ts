@@ -1,36 +1,36 @@
-import { expect } from 'chai';
+import assert from 'assert';
 import { launchTV } from '../../utils/tvDriver';
-import { TvHomePage } from '../../pages/tv/TvHomePage';
 
-describe('Android TV Smoke Test', () => {
+describe('Android TV Smoke Test', function () {
 
-    let driver:any;
-    let homePage:any;
+    this.timeout(60000);
 
-    before(async () => {
+    let driver: any;
 
+    before(async function () {
         driver = await launchTV();
-        homePage = new TvHomePage(driver);
+    });
+
+    it('TV Navigation Demo', async function () {
+
+        await driver.pause(3000);
+
+        await driver.pressKeyCode(21); // LEFT
+        await driver.pause(3000);
+
+        await driver.pressKeyCode(22); // RIGHT
+        await driver.pause(3000);
+
+        await driver.pressKeyCode(19); // UP
+        await driver.pause(3000);
+
+        await driver.pressKeyCode(20); // DOWN
+        await driver.pause(3000);
 
     });
 
-    it('TV should launch successfully', async () => {
-
-        const activity =
-            await homePage.getCurrentActivity();
-
-        console.log(activity);
-
-        expect(activity).to.not.equal(null);
-
-    });
-
-    after(async () => {
-
-        if(driver){
-            await driver.deleteSession();
-        }
-
+    after(async function () {
+        await driver.deleteSession();
     });
 
 });

@@ -4,7 +4,7 @@ reports/
 
 allure-results/
 allure-report/
-
+screenshots/
 dist/
 
 logs/
