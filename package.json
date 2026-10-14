@@ -4,11 +4,17 @@
   "description": "Mobile Automation Framework using Appium, WebdriverIO and TypeScript",
   "main": "index.js",
   "scripts": {
-    "mobile-smoke": "mocha -r ts-node/register tests/smoke/smoke.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
-    "mobile-product": "mocha -r ts-node/register tests/regression/productValidation.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
-    "mobile-cart": "mocha -r ts-node/register tests/regression/addToCart.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
-    "mobile-login": "mocha -r ts-node/register tests/regression/login.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
-    "mobile-all": "mocha -r ts-node/register \"tests/**/*.spec.ts\" --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false"
+    "mobile-smoke": "mocha -r ts-node/register tests/mobile/smoke.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
+    "mobile-product": "mocha -r ts-node/register tests/mobile/productValidation.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
+    "mobile-cart": "mocha -r ts-node/register tests/mobile/addToCart.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
+    "mobile-login": "mocha -r ts-node/register tests/mobile/login.spec.ts --reporter mochawesome --reporter-options reportDir=reports,reportFilename=mobile-report,json=true,html=false",
+    "mobile-all":
+    "mocha -r ts-node/register \"tests/mobile/**/*.spec.ts\"",
+    "tv-smoke":
+    "mocha -r ts-node/register tests/tv/tvSmoke.spec.ts",
+
+    "tv-navigation":
+    "mocha -r ts-node/register tests/tv/tvNavigation.spec.ts"
   },
   "keywords": [
     "appium",

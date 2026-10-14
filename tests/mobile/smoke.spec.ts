@@ -1,4 +1,4 @@
-import { launchApp } from '../../utils/driver';
+import { launchApp } from '../../utils/mobileDriver';
 import assert from 'assert';
 
 describe('App Launch Validation', function () {

@@ -6,7 +6,7 @@ const appPath = path.resolve(
     'mda-2.3.0-27.apk'
 );
 
-export const androidCapabilities = {
+export const mobileCapabilities = {
 
     platformName: 'Android',
 

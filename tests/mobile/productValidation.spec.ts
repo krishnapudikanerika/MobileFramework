@@ -1,5 +1,5 @@
-import { launchApp } from '../../utils/driver';
-import { ProductsPage } from '../../pages/ProductsPage';
+import { launchApp } from '../../utils/mobileDriver';
+import { ProductsPage } from '../../pages/mobile/ProductsPage';
 import assert from 'assert';
 
 describe(
