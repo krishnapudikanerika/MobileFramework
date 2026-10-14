@@ -1,3 +1,5 @@
+import path from 'path';
+
 export const androidCapabilities = {
 
     platformName: 'Android',
@@ -12,7 +14,12 @@ export const androidCapabilities = {
 
     'appium:newCommandTimeout': 120,
 
-    'appium:app':
-        './apps/mda-2.3.0-27.apk'
+    'appium:app': path.resolve(
+        process.cwd(),
+        'apps',
+        'mda-2.3.0-27.apk'
+    ),
+
+    'appium:appWaitForLaunch': false
 
 };
