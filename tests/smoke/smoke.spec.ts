@@ -1,33 +1,29 @@
 import { launchApp } from '../../utils/driver';
 import assert from 'assert';
 
-describe(
-    'App Launch Validation',
-    function () {
+describe('App Launch Validation', function () {
 
-        this.timeout(60000);
+    this.timeout(60000);
 
-        it(
-            'Should Create Session',
-            async () => {
+    it('Should Launch App', async () => {
 
-                const driver =
-                    await launchApp();
+        const driver = await launchApp();
 
-                assert.ok(
-                    driver.sessionId
-                );
+        await driver.pause(5000);
 
-                console.log(
-                    `Session ID: ${driver.sessionId}`
-                );
+        const currentPackage =
+            await driver.getCurrentPackage();
 
-                await driver.deleteSession();
-
-            }
-
+        console.log(
+            `Current Package: ${currentPackage}`
         );
 
-    }
+        assert.ok(driver.sessionId);
 
-);
+        await driver.pause(10000);
+
+        await driver.deleteSession();
+
+    });
+
+});

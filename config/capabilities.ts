@@ -1,5 +1,11 @@
 import path from 'path';
 
+const appPath = path.resolve(
+    process.cwd(),
+    'apps',
+    'mda-2.3.0-27.apk'
+);
+
 export const androidCapabilities = {
 
     platformName: 'Android',
@@ -8,18 +14,13 @@ export const androidCapabilities = {
 
     'appium:deviceName': 'Android Emulator',
 
-    'appium:noReset': true,
+    'appium:noReset': false,
 
     'appium:autoGrantPermissions': true,
 
     'appium:newCommandTimeout': 120,
 
-    'appium:app': path.resolve(
-        process.cwd(),
-        'apps',
-        'mda-2.3.0-27.apk'
-    ),
+    'appium:app': appPath,
 
     'appium:appWaitForLaunch': false
-
 };
