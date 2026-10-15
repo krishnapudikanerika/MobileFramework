@@ -21,3 +21,10 @@ export async function ok(driver:any) {
 export async function home(driver:any) {
     await driver.pressKeyCode(3);
 }
+
+export async function home(driver:any) {
+
+    await driver.pressKeyCode(3);
+    await driver.pause(2000);
+
+}
